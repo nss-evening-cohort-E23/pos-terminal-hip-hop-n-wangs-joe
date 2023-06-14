@@ -1,11 +1,11 @@
 const client = {
-  apiKey: process.env.APP_API_KEY,
-  authDomain: process.env.APP_AUTH_DOMAIN,
-  databaseURL: process.env.APP_DATABASE_URL,
-  projectId: process.env.APP_PROJECT_ID,
-  storageBucket: process.env.APP_STORAGE_BUCKET,
-  appId: process.env.APP_APP_ID,
-  measurementId: process.env.APP_MEASUREMENT_ID,
+  apiKey: "AIzaSyCZt9kHZSDIBPO5KvCdpFTSjlQGYnE2xxU",
+  authDomain: "run-dmcheese.firebaseapp.com",
+  databaseURL: "https://run-dmcheese-default-rtdb.firebaseio.com",
+  projectId: "run-dmcheese",
+  storageBucket: "run-dmcheese.appspot.com",
+  appId: "1:758402615354:web:f3c669957becaee4f28d03",
+  measurementId: "G-RN0Q8JWBV3",
 };
 
 export default client;
