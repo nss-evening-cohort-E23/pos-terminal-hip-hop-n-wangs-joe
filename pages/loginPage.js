@@ -1,4 +1,5 @@
 import loginButton from '../components/loginButton';
+import renderToDOM from '../utils/renderToDom';
 
 const loginPage = () => {
   const businessName = 'Run-DM-Cheese';
@@ -9,7 +10,7 @@ const loginPage = () => {
   <div>${loginButton}</div>
   </div>`;
 
-  renderTodom('#app,', domString);
+  renderToDOM('#app', domString);
 };
 
 export default loginPage;
