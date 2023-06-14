@@ -5,12 +5,15 @@ const loginPage = () => {
   const businessName = 'Run-DM-Cheese';
 
   const domString = `
-  <div id="login-page>
-  <h2>${businessName}</h2>
-  <div>${loginButton}</div>
-  </div>`;
+    <div id="login-page">
+      <h2>${businessName}</h2>
+      <div id="login-button-container"></div>
+    </div>
+  `;
 
-  renderToDOM('#app', domString);
+  renderToDom('#app', domString);
+  const loginButtonContainer = document.querySelector('#login-button-container');
+  loginButtonContainer.appendChild(loginButton());
 };
 
 export default loginPage;
