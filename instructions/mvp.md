@@ -11,12 +11,12 @@ HHP+W been getting a lot of call in orders to their store since placing an ad on
 
 They would like to have a POS (point of sale) application built for them to help keep up with their orders! They will be primarily using the application on tablet devices. After hearing their story you happily accept the request.
 
-You call up your developer buddies to help you build this appication so that you can get it up and running for HHP+W as soon as possible.
+You call up your developer buddies to help you build this application so that you can get it up and running for HHP+W as soon as possible.
 
 ## Get Started
 * Review [wireframe](https://www.figma.com/file/4y3EZddALuBR3ouSEM57Np/MVP?node-id=0%3A1)
 * Ensure all teammates have access to the repo and have it pulled down to their machines
-* Begin by reviewing the AC and creating the tickets your team will need to complete the project separated by milestones and organizaed by priority on your Github project board.
+* Begin by reviewing the AC and creating the tickets your team will need to complete the project separated by milestones and organized by priority on your Github project board.
 * Create a setup branch
 * Do all the stuff needed when setting up the project. These include:
   *  making the updates to the `.env` file

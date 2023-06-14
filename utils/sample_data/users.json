@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "name": "Erin Caby",
+    "email": "ErinCaby@example.com",
+    "firebaseKey": ""
+  },
+  {
+    "id": 2,
+    "name": "Oivia Daniels",
+    "email": "OlivaDaniels@example.com",
+    "firebaseKey": ""
+  },
+  {
+    "id": 3,
+    "name": "Jared Anderson",
+    "email": "JaredAnderson@example.com",
+    "firebaseKey": ""
+  },
+  {
+    "id": 4,
+    "name": "Sarah Williams",
+    "email": "sarahwilliams@example.com",
+    "firebaseKey": ""
+  },
+  {
+    "id": 5,
+    "name": "",
+    "email": "",
+    "firebaseKey": ""
+  }
+]
