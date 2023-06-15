@@ -1,5 +1,5 @@
 import loginButton from '../components/loginButton';
-import renderToDOM from '../utils/renderToDom';
+import renderToDOM from '../utils/renderToDOM';
 
 const loginPage = () => {
   const businessName = 'Run-DM-Cheese';
