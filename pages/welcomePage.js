@@ -1,6 +1,9 @@
-import renderToDOM from '../utils/renderToDOM';
 
+import renderToDOM from '../utils/renderToDOM';
 const welcomePage = (user) => {
+
+
+const welcomePage = () => {
   const domString = `
   <h1 class="welcome-text">Welcome ${user.displayName}!</h1>
     <div class="welcome-buttons">
