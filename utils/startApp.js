@@ -2,6 +2,7 @@ import logoutButton from '../components/logoutButton';
 import domBuilder from '../components/shared/domBuilder';
 import domEvents from './events/domEvents';
 import formEvents from './events/formEvents';
+import welcomePage from '../pages/welcomePage';
 // import navigationEvents from './events/navigationEvents';
 
 const startApp = (user) => {
@@ -9,6 +10,7 @@ const startApp = (user) => {
   domEvents(user);
   formEvents(user);
   logoutButton();
+  welcomePage(user);
   // navigationEvents();
 };
 
