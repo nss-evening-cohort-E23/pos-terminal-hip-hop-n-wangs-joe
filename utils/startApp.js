@@ -6,8 +6,6 @@ import formEvents from './events/formEvents';
 import welcomePage from '../pages/welcomePage';
 // import navigationEvents from './events/navigationEvents';
 
-
-
 const startApp = (user) => {
   domBuilder(user);
   domEvents(user);
