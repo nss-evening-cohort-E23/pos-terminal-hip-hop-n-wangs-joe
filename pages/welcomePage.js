@@ -1,9 +1,6 @@
-import clearDom from '../utils/clearDom';
 import renderToDOM from '../utils/renderToDom';
 
 const welcomePage = () => {
-  clearDom();
-
   const domString = `
   <h1 class="welcome-text">Welcome User!</h1>
     <div class="welcome-buttons">
