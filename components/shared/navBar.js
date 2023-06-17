@@ -16,7 +16,7 @@ const navBar = () => {
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#" id="create-order">Create an Order</a>
+              <a class="nav-link" href="#" id="createOrderNav">Create an Order</a>
             </li>
           </ul>
           <span class="navbar-text">
@@ -27,6 +27,24 @@ const navBar = () => {
       </nav>`;
 
   renderToDOM('#navigation', domString);
+
+  const createOrderNav = document.querySelector('#createOrderNav');
+  createOrderNav.addEventListener('click', () => {
+    // eslint-disable-next-line no-undef
+    const modal = new bootstrap.Modal(document.querySelector('#myModal'));
+    modal.show();
+
+    const submitOrderForm = document.querySelector('#submitOrder');
+    submitOrderForm.addEventListener('click', (event) => {
+      console.warn('clicked submit');
+      event.preventDefault();
+      modal.hide();
+    });
+    const closeButton = document.querySelector('.btn-close');
+    closeButton.addEventListener('click', () => {
+      modal.hide();
+    });
+  });
 };
 
 export default navBar;
