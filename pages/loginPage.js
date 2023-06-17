@@ -1,5 +1,5 @@
 import loginButton from '../components/loginButton';
-import renderToDom from '../utils/renderToDom';
+import renderToDOM from '../utils/renderToDOM';
 
 const loginPage = () => {
   const businessName = 'Run-DM-Cheese';
@@ -13,7 +13,7 @@ const loginPage = () => {
   const appContainer = document.querySelector('#app');
   appContainer.innerHTML = '';
 
-  renderToDom('#app', domString);
+  renderToDOM('#app', domString);
   const loginButtonContainer = document.querySelector('#login-button-container');
   loginButtonContainer.appendChild(loginButton());
 
