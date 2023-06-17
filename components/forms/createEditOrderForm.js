@@ -30,9 +30,8 @@ const createEditOrderForm = () => {
               <ul class="dropdown-menu dropdown-menu-end">
                 <li><a class="dropdown-item" href="#">Online</a></li>
                 <li><a class="dropdown-item" href="#">Phone</a></li>
-                <li><a class="dropdown-item" href="#">In-Store</a></li>
+                <li><a class="dropdown-item" href="#">In-Person</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Separated link</a></li>
               </ul>
             </div>
           </div>
