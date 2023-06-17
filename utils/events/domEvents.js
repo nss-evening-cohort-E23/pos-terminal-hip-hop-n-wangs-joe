@@ -33,7 +33,7 @@ const domEvents = (user) => {
       console.warn('CLICKED EDIT ORDER', e.target.id);
       console.warn(e.target.id.split('--'));
       const [, firebaseKey] = e.target.id.split('--');
-      createEditOrderForm();
+      createEditOrderForm(firebaseKey);
     }
   });
 };
