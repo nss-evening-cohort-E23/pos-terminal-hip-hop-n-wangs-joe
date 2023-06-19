@@ -2,7 +2,7 @@ import renderToDOM from '../utils/renderToDOM';
 
 const emptyOrders = () => {
   const domString = '<h1>No Orders</h1>';
-  renderToDOM('#store', domString);
+  renderToDOM('#view', domString);
 };
 
 const showOrders = (array) => {
@@ -17,7 +17,7 @@ const showOrders = (array) => {
       <h5 class="order-type">Order Type: ${orders.order_type}</h5>
     </div>
     <button id="details-order-btn--${orders.firebaseKey}" class="btn btn-dark">Details</button>
-    <button id="edit-order-btn--${orders.firebaseKey}" class="btn btn-dark">Edit</button>
+    <button id="edit-order--${orders.firebaseKey}" class="btn btn-dark">Edit</button>
     <button id="delete-order-btn--${orders.firebaseKey}" class="btn btn-success">Delete</button>
   </div>`;
   });
