@@ -23,12 +23,14 @@ const domEvents = (user) => {
         console.warn(e.target.id.split('--'));
         const [, firebaseKey] = e.target.id.split('--');
         deleteOrder(firebaseKey).then(() => {
-          getOrders(`${user.uid}`).then(showOrders);
+          getOrders(`${user.uid}`).then((orders) => {
+            showOrders(orders);
+          });
         });
       }
     }
   });
-  document.querySelector('#app').addEventListener('click', (e) => {
+  document.querySelector('#main-container').addEventListener('click', (e) => {
     if (e.target.id.includes('edit-order')) {
       console.warn('CLICKED EDIT ORDER', e.target.id);
       console.warn(e.target.id.split('--'));
