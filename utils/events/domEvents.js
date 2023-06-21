@@ -21,7 +21,7 @@ const domEvents = (user) => {
 
   // click event for order details EC
   document.querySelector('#main-container').addEventListener('click', (e) => {
-    if (e.target.id.includes('details-orders-btn')) {
+    if (e.target.id.includes('details-order-btn')) {
       console.warn('clicked order details');
       const [, firebaseKey] = e.target.id.split('--');
       getSingleOrder(firebaseKey).then((order) => getOrderItems(order.orderId)).then(viewOrderItems);
@@ -43,6 +43,8 @@ const domEvents = (user) => {
       }
     }
   });
+
+  document.querySelector('#main-container').addEventListener('click', (e) => {
   document.querySelector('#view').addEventListener('click', (e) => {
     if (e.target.id.includes('edit-order')) {
       console.warn('edit order clicked');
