@@ -1,6 +1,7 @@
 [
   {
     "orderId": 1,
+
     "order_name": "Order 1",
     "order_status": "open",
     "customer_phone": "123-456-7890",
@@ -8,11 +9,22 @@
     "order_type": "phone",
     "order_amount": 50.0,
     "tip_amount": 5.0,
+
+    "order_name": "Order 1",
+    "order_status": "open",
+    "customer_phone": "123-456-7890",
+    "customer_email": "customer1@example.com",
+    "order_type": "phone",
+    "order_amount": 50.0,
+    "tip_amount": 5.0,
+
     "firebaseKey": "",
-    "uid": "2jyrX0PpG6SBujoL9bitGFedOz13"
+    "uid": "2jyrX0PpG6SBujoL9bitGFedOz13",
+    "timestamp": 
   },
   {
     "orderId": 2,
+
     "order_name": "Order 2",
     "order_status": "closed",
     "customer_phone": "987-654-3210",
@@ -20,11 +32,22 @@
     "order_type": "in-person",
     "order_amount": 75.0,
     "tip_amount": 10.0,
+
+    "order_name": "Order 2",
+    "order_status": "closed",
+    "customer_phone": "987-654-3210",
+    "customer_email": "customer2@example.com",
+    "order_type": "in-person",
+    "order_amount": 75.0,
+    "tip_amount": 10.0,
+
     "firebaseKey": "",
-    "uid": "2jyrX0PpG6SBujoL9bitGFedOz13"
+    "uid": "2jyrX0PpG6SBujoL9bitGFedOz13",
+    "timestamp": 
   },
   {
     "orderId": 3,
+
     "order_name": "Order 3",
     "order_status": "open",
     "customer_phone": "555-555-5555",
@@ -32,11 +55,22 @@
     "order_type": "phone",
     "order_amount": 30.0,
     "tip_amount": 2.5,
+=======
+    "order_name": "Order 3",
+    "order_status": "open",
+    "customer_phone": "555-555-5555",
+    "customer_email": "customer3@example.com",
+    "order_type": "phone",
+    "order_amount": 30.0,
+    "tip_amount": 2.5,
+
     "firebaseKey": "",
-    "uid": "2jyrX0PpG6SBujoL9bitGFedOz13"
+    "uid": "2jyrX0PpG6SBujoL9bitGFedOz13",
+    "timestamp": 
   },
   {
     "orderId": 4,
+
     "order_name": "Order 4",
     "order_status": "open",
     "customer_phone": "111-222-3333",
@@ -44,7 +78,17 @@
     "order_type": "in-person",
     "order_amount": 60.0,
     "tip_amount": 6.0,
+
+    "order_name": "Order 4",
+    "order_status": "open",
+    "customer_phone": "111-222-3333",
+    "customer_email": "customer4@example.com",
+    "order_type": "in-person",
+    "order_amount": 60.0,
+    "tip_amount": 6.0,
+
     "firebaseKey": "",
-    "uid": "2jyrX0PpG6SBujoL9bitGFedOz13"
+    "uid": "2jyrX0PpG6SBujoL9bitGFedOz13",
+    "timestamp":
   }
 ]
