@@ -5,7 +5,6 @@ import navigationEvents from './events/navigationEvents';
 import domEvents from './events/domEvents';
 import formEvents from './events/formEvents';
 import welcomePage from '../pages/welcomePage';
-import viewOrderItems from '../pages/viewOrderItems';
 
 const startApp = (user) => {
   domBuilder(user);
@@ -15,8 +14,6 @@ const startApp = (user) => {
   navigationEvents(user);
   formEvents(user);
   logoutButton();
-  welcomePage(user);
-  viewOrderItems(user);
 };
 
 export default startApp;
