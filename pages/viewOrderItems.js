@@ -1,17 +1,16 @@
 import renderToDOM from '../utils/renderToDOM';
 
 const viewOrderItems = (array) => {
-  // clearDom();
-
   let domString = '';
-  array.forEach((item) => {
+  console.warn(array);
+  array.forEach((items) => {
     domString += `
       <div class="card" style="width: 18rem;">
          <div class="card-body">
-           <h5 class="card-title">${item.item_name}/h5>
-           <h6 class="card-subtitle mb-2 text-body-secondary">${item.item_price}</h6>
-            <a href="#" id="update-item-btn--${item.firebaseKey}" class="card-link">Edit Item</a>
-            <a href="#" id="delete-item-btn--${item.firebaseKey}" class="card-link">Delete Item</a>
+           <h5 class="card-title">${items.item_name}</h5>
+           <h6 class="card-subtitle mb-2 text-body-secondary">${items.item_price}</h6>
+            <a href="#" id="update-item-btn--${items.firebaseKey}" class="card-link">Edit Item</a>
+            <a href="#" id="delete-item-btn--${items.firebaseKey}" class="card-link">Delete Item</a>
         </div>
 </div>`;
   });
