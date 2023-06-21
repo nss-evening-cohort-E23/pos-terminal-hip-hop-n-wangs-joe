@@ -63,15 +63,38 @@ const updateOrder = (payload) => new Promise((resolve, reject) => {
 });
 
 // Get a single order
-const getSingleOrder = (orderfirebasekey) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/orders/${orderfirebasekey}.json`, {
+const getSingleOrder = (orderFirebaseKey) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/orders/${orderFirebaseKey}.json`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
     },
   })
     .then((response) => response.json())
-    .then((data) => resolve(data))
+    .then((data) => {
+      console.warn(data);
+      resolve(data);
+    })
+    .catch(reject);
+});
+
+// get order itmes EC
+const getOrderItems = (orderId) => new Promise((resolve, reject) => {
+  fetch(`https://run-dmcheese-default-rtdb.firebaseio.com/items.json?orderBy="orderId"&equalTo=${orderId}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data) {
+        console.warn(data);
+        resolve(Object.values(data));
+      } else {
+        resolve([]);
+      }
+    })
     .catch(reject);
 });
 
@@ -80,6 +103,6 @@ export {
   CreateOrder,
   updateOrder,
   deleteOrder,
-  getSingleOrder
-
+  getSingleOrder,
+  getOrderItems
 };
