@@ -30,11 +30,11 @@ const domEvents = (user) => {
       }
     }
   });
-  document.querySelector('#main-container').addEventListener('click', (e) => {
+  document.querySelector('#view').addEventListener('click', (e) => {
     if (e.target.id.includes('edit-order')) {
-      console.warn('CLICKED EDIT ORDER', e.target.id);
-      console.warn(e.target.id.split('--'));
+      console.warn('edit order clicked');
       const [, firebaseKey] = e.target.id.split('--');
+      console.warn(firebaseKey);
       createEditOrderForm(firebaseKey);
     }
   });

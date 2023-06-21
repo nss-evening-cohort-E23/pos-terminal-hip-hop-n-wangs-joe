@@ -22,7 +22,7 @@ const getOrders = (uid) => new Promise((resolve, reject) => {
 });
 
 // Create(POST) a new order.
-const CreateOrder = (payload) => new Promise((resolve, reject) => {
+const createOrder = (payload) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/orders.json`, {
     method: 'POST',
     headers: {
@@ -77,7 +77,7 @@ const getSingleOrder = (orderfirebasekey) => new Promise((resolve, reject) => {
 
 export {
   getOrders,
-  CreateOrder,
+  createOrder,
   updateOrder,
   deleteOrder,
   getSingleOrder
