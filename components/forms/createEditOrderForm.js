@@ -2,7 +2,7 @@ import firebase from 'firebase';
 import { createOrder } from '../../api/orderData';
 import renderToDOM from '../../utils/renderToDOM';
 
-const createEditOrderForm = (user, obj = {}) => {
+const createEditOrderForm = (obj = {}) => {
   const domString = `
     <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog">
