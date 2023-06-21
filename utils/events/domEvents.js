@@ -1,6 +1,9 @@
 import { deleteOrder, getOrders } from '../../api/orderData';
 import createEditOrderForm from '../../components/forms/createEditOrderForm';
+import viewOrderItems from '../../pages/viewOrderItems';
+import { getOrderItems, getSingleOrder } from '../../api/orderData';
 import { showOrders } from '../../pages/orders';
+
 
 const domEvents = (user) => {
   document.querySelector('#main-container').addEventListener('click', async (e) => {
@@ -15,6 +18,14 @@ const domEvents = (user) => {
       createEditOrderForm();
     }
   });
+
+  // click event for order details EC
+  document.querySelector('#main-container').addEventListener('click', (e) => {
+    if (e.target.id.includes('details-orders-btn')) {
+      console.warn('clicked order details');
+      const [, firebaseKey] = e.target.id.split('--');
+      getSingleOrder(firebaseKey).then((order) => getOrderItems(order.orderId)).then(viewOrderItems);
+
   document.querySelector('#main-container').addEventListener('click', (e) => {
     if (e.target.id.includes('delete-order')) {
       // eslint-disable-next-line no-alert

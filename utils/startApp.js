@@ -14,7 +14,6 @@ const startApp = (user) => {
   navigationEvents(user);
   formEvents(user);
   logoutButton();
-  welcomePage(user);
 };
 
 export default startApp;
