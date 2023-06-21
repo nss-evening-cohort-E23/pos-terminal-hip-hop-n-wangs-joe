@@ -1,7 +1,8 @@
+import firebase from 'firebase';
 import { createOrder } from '../../api/orderData';
 import renderToDOM from '../../utils/renderToDOM';
 
-const createEditOrderForm = (obj = {}) => {
+const createEditOrderForm = (user, obj = {}) => {
   const domString = `
     <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog">
@@ -59,6 +60,8 @@ const createEditOrderForm = (obj = {}) => {
       customer_phone: document.querySelector('#customer_phone').value,
       customer_email: document.querySelector('#customer_email').value,
       order_type: document.querySelector('#order_type').textContent.trim(),
+      uid: firebase.auth().currentUser.uid,
+      order_status: 'Open',
     };
 
     try {
