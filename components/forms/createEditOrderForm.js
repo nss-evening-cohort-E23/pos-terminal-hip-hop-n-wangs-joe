@@ -70,10 +70,13 @@ const createEditOrderForm = (obj = {}) => {
       order_type: document.querySelector('#selected_order_type').value,
       uid: firebase.auth().currentUser.uid,
       order_status: 'Open',
+      firebaseKey: obj.firebaseKey || '',
+      timestamp: new Date().toISOString(),
     };
 
     try {
-      await createOrder(newOrderPayload);
+      const createdOrder = await createOrder(newOrderPayload);
+      newOrderPayload.firebaseKey = createdOrder.key; // Set the firebaseKey based on the generated key
       modal.hide();
     } catch (error) {
       console.error(error);

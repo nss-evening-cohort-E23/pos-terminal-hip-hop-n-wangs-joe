@@ -31,9 +31,9 @@ const formEvents = (user) => {
 
   document.querySelector('#view').addEventListener('click', (e) => {
     if (e.target.id.includes('edit-order')) {
-      console.warn('edit order clicked');
+      // console.warn('edit order clicked');
       const [, firebaseKey] = e.target.id.split('--');
-      console.warn(firebaseKey);
+      // console.warn(firebaseKey);
       const updateOrderPayload = {
         order_name: document.querySelector('#order_name').value,
         customer_phone: document.querySelector('#customer_phone').value,
