@@ -45,6 +45,12 @@ const navBar = () => {
       modal.hide();
     });
   });
+  window.addEventListener('click', (e) => {
+    const navBarCollapse = document.querySelector('.navbar-collapse');
+    if (!e.target.closest('.navbar-collapse')) {
+      navBarCollapse.classList.remove('show');
+    }
+  });
 };
 
 export default navBar;
