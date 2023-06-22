@@ -4,6 +4,7 @@ import {
   deleteOrder, getOrderItems, getOrders, getSingleOrder
 } from '../../api/orderData';
 import { showOrders } from '../../pages/orders';
+import revenuePage from '../../pages/revenuePage';
 
 const domEvents = (user) => {
   document.querySelector('#main-container').addEventListener('click', async (e) => {
@@ -45,12 +46,15 @@ const domEvents = (user) => {
   });
 
   document.querySelector('#main-container').addEventListener('click', (e) => {
-  document.querySelector('#view').addEventListener('click', (e) => {
     if (e.target.id.includes('edit-order')) {
       console.warn('edit order clicked');
       const [, firebaseKey] = e.target.id.split('--');
       console.warn(firebaseKey);
       createEditOrderForm(firebaseKey);
+    }
+
+    if (e.target.id === 'viewRevenueWelcome') {
+      getOrders().then(revenuePage);
     }
   });
 };
