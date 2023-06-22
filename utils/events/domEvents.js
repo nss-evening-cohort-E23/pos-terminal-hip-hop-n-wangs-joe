@@ -18,7 +18,9 @@ const domEvents = (user) => {
     if (e.target.id.includes('details-order-btn')) {
       console.warn('clicked order details');
       const [, firebaseKey] = e.target.id.split('--');
-      getSingleOrder(firebaseKey).then((order) => getOrderItems(order.orderId)).then(viewOrderItems);
+      getSingleOrder(firebaseKey)
+        .then((order) => getOrderItems(order.orderId))
+        .then(viewOrderItems);
     }
   });
 
@@ -31,7 +33,7 @@ const domEvents = (user) => {
         // eslint-disable-next-line camelcase
         const [, order_name] = e.target.id.split('--');
         deleteOrder(order_name).then(() => {
-          getOrders(`${user.uid}`).then((orders) => {
+          getOrders(user.uid).then((orders) => {
             showOrders(orders);
           });
         });
@@ -40,7 +42,6 @@ const domEvents = (user) => {
   });
 
   document.querySelector('#main-container').addEventListener('click', (e) => {
-  document.querySelector('#view').addEventListener('click', (e) => {
     if (e.target.id.includes('edit-order')) {
       console.warn('edit order clicked');
       const [, firebaseKey] = e.target.id.split('--');
