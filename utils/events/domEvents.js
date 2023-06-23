@@ -13,12 +13,6 @@ const domEvents = (user) => {
       createEditOrderForm();
     }
   });
-  document.querySelector('#navigation').addEventListener('click', (e) => {
-    if (e.target.id === 'createOrderNav') {
-      console.warn('clicked create order');
-      createEditOrderForm();
-    }
-  });
 
   // click event for order details EC
   document.querySelector('#main-container').addEventListener('click', (e) => {
@@ -35,8 +29,9 @@ const domEvents = (user) => {
       if (window.confirm('Want to delete?')) {
         console.warn('CLICKED DELETE ORDER', e.target.id);
         console.warn(e.target.id.split('--'));
-        const [, firebaseKey] = e.target.id.split('--');
-        deleteOrder(firebaseKey).then(() => {
+        // eslint-disable-next-line camelcase
+        const [, order_name] = e.target.id.split('--');
+        deleteOrder(order_name).then(() => {
           getOrders(`${user.uid}`).then((orders) => {
             showOrders(orders);
           });
@@ -50,11 +45,13 @@ const domEvents = (user) => {
       console.warn('edit order clicked');
       const [, firebaseKey] = e.target.id.split('--');
       console.warn(firebaseKey);
-      createEditOrderForm(firebaseKey);
+      createEditOrderForm({ firebaseKey });
     }
 
     if (e.target.id === 'viewRevenueWelcome') {
-      getOrders().then(revenuePage);
+      getOrders(user.uid).then((orders) => {
+        revenuePage(orders);
+      });
     }
   });
 };
