@@ -5,6 +5,7 @@ import {
 } from '../../api/orderData';
 import { showOrders } from '../../pages/orders';
 import createEditItemForm from '../../components/forms/createEditItemForm';
+import revenuePage from '../../pages/revenuePage';
 
 const domEvents = (user) => {
   document.querySelector('#main-container').addEventListener('click', async (e) => {
@@ -45,6 +46,12 @@ const domEvents = (user) => {
       const [, firebaseKey] = e.target.id.split('--');
       console.warn(firebaseKey);
       createEditOrderForm({ firebaseKey });
+    }
+
+    if (e.target.id === 'viewRevenueWelcome') {
+      getOrders(user.uid).then((orders) => {
+        revenuePage(orders);
+      });
     }
   });
 

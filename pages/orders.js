@@ -12,6 +12,7 @@ const showOrders = (array) => {
     <div class="card" style="width: 25rem;">
     <div class="card-body">
       <h5 class="order-status">Order Status: ${orders.order_status}</h5>
+      <p class="order-name"> ${orders.order_name}</p>
       <p class="customer-phone-num">Customer Phone #: ${orders.customer_phone}</p>
       <p class="customer-email">${orders.customer_email}</p>
       <h5 class="order-type">Order Type: ${orders.order_type}</h5>
