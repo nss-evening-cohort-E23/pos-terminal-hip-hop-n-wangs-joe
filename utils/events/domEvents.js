@@ -1,9 +1,10 @@
 import createEditOrderForm from '../../components/forms/createEditOrderForm';
 import viewOrderItems from '../../pages/viewOrderItems';
 import {
-  deleteOrder, getOrderItems, getOrders, getSingleOrder
+  deleteOrder, getOrderItems, getOrders, getSingleOrder, getSingleItem
 } from '../../api/orderData';
 import { showOrders } from '../../pages/orders';
+import createEditItemForm from '../../components/forms/createEditItemForm';
 
 const domEvents = (user) => {
   document.querySelector('#main-container').addEventListener('click', async (e) => {
@@ -12,16 +13,16 @@ const domEvents = (user) => {
       createEditOrderForm();
     }
   });
-
   // click event for order details EC
   document.querySelector('#main-container').addEventListener('click', (e) => {
     if (e.target.id.includes('details-order-btn')) {
       console.warn('clicked order details');
       const [, firebaseKey] = e.target.id.split('--');
-      getSingleOrder(firebaseKey).then((order) => getOrderItems(order.orderId)).then(viewOrderItems);
+      getSingleOrder(firebaseKey)
+        .then((order) => getOrderItems(order.orderId))
+        .then(viewOrderItems);
     }
   });
-
   document.querySelector('#main-container').addEventListener('click', (e) => {
     if (e.target.id.includes('delete-order')) {
       // eslint-disable-next-line no-alert
@@ -31,16 +32,14 @@ const domEvents = (user) => {
         // eslint-disable-next-line camelcase
         const [, order_name] = e.target.id.split('--');
         deleteOrder(order_name).then(() => {
-          getOrders(`${user.uid}`).then((orders) => {
+          getOrders(user.uid).then((orders) => {
             showOrders(orders);
           });
         });
       }
     }
   });
-
   document.querySelector('#main-container').addEventListener('click', (e) => {
-  document.querySelector('#view').addEventListener('click', (e) => {
     if (e.target.id.includes('edit-order')) {
       console.warn('edit order clicked');
       const [, firebaseKey] = e.target.id.split('--');
@@ -48,6 +47,14 @@ const domEvents = (user) => {
       createEditOrderForm({ firebaseKey });
     }
   });
-};
 
+  // edit item form populates when you click the edit button EC
+  document.querySelector('#main-container').addEventListener('click', (e) => {
+    if (e.target.id.includes('edit-item-btn')) {
+      console.warn('clicked update item button');
+      const [, firebaseKey] = e.target.id.split('--');
+      getSingleItem(firebaseKey).then((itemObj) => createEditItemForm(itemObj, user));
+    }
+  });
+};
 export default domEvents;

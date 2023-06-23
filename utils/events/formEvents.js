@@ -1,5 +1,8 @@
-import { createOrder, getOrders, updateOrder } from '../../api/orderData';
+import {
+  createOrder, getOrderItems, getOrders, updateOrder, updateItem
+} from '../../api/orderData';
 import { showOrders } from '../../pages/orders';
+import viewOrderItems from '../../pages/viewOrderItems';
 
 const formEvents = (user) => {
   document.querySelector('#form-container').addEventListener('submit', async (e) => {
@@ -47,6 +50,25 @@ const formEvents = (user) => {
         // eslint-disable-next-line no-undef
         const modal = bootstrap.Modal.getInstance(document.querySelector('#myModal'));
         modal.hide();
+      });
+    }
+  });
+
+  // click event for submitting an edited item
+  document.querySelector('#main-container').addEventListener('click', (e) => {
+    if (e.target.id.includes('update-item-btn')) {
+      console.warn('clicked edit button');
+      const [, firebaseKey] = e.target.id.split('--');
+      const payload = {
+        item_name: document.querySelector('#item_name').value,
+        item_id: document.querySelector('#item_id').value,
+        item_price: document.querySelector('#item_price').value,
+        orderId: document.querySelector('#orderId').value,
+        firebaseKey,
+        uid: user.uid,
+      };
+      updateItem(payload).then(() => {
+        getOrderItems(user.uid).then(viewOrderItems);
       });
     }
   });
