@@ -9,7 +9,7 @@
     "order_amount": 50.0,
     "tip_amount": 5.0,
     "firebaseKey": "",
-    "uid": "2jyrX0PpG6SBujoL9bitGFedOz13"
+    "uid": "2jyrX0PpG6SBujoL9bitGFedOz13
   },
   {
     "order_id": 2,
@@ -21,8 +21,7 @@
     "order_amount": 75.0,
     "tip_amount": 10.0,
     "firebaseKey": "",
-    "uid": "2jyrX0PpG6SBujoL9bitGFedOz13",
-    "timestamp": ""
+    "uid": "mTDO3mhGHUersPdELBbZAswr7E83"
   },
   {
     "order_id": 3,
@@ -34,8 +33,7 @@
     "order_amount": 30.0,
     "tip_amount": 2.5,
     "firebaseKey": "",
-    "uid": "2jyrX0PpG6SBujoL9bitGFedOz13",
-    "timestamp": "" 
+    "uid": "mTDO3mhGHUersPdELBbZAswr7E83"
   },
   {
     "order_id": 4,
@@ -47,7 +45,6 @@
     "order_amount": 60.0,
     "tip_amount": 6.0,
     "firebaseKey": "",
-    "uid": "2jyrX0PpG6SBujoL9bitGFedOz13",
-    "timestamp": ""
+    "uid": "mTDO3mhGHUersPdELBbZAswr7E83"
   }
 ]
