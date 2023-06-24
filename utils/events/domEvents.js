@@ -32,10 +32,10 @@ const domEvents = (user) => {
         console.warn('CLICKED DELETE ORDER', e.target.id);
         console.warn(e.target.id.split('--'));
         // eslint-disable-next-line camelcase
-        const [, order_name] = e.target.id.split('--');
-        deleteOrder(order_name).then(() => {
-          getOrders(user.uid).then((orders) => {
-            showOrders(orders);
+        const [, orderId] = e.target.id.split('--');
+        deleteOrder(orderId).then(() => {
+          getOrders(`${user.uid}`).then((orders) => {
+            showOrders(orders, orderId);
           });
         });
       }

@@ -1,5 +1,8 @@
-import { createOrder, getOrders, updateOrder } from '../../api/orderData';
+import {
+  createOrder, deleteItem, getOrderItems, getOrders, updateOrder
+} from '../../api/orderData';
 import { showOrders } from '../../pages/orders';
+import viewOrderItems from '../../pages/viewOrderItems';
 
 const formEvents = (user) => {
   document.querySelector('#form-container').addEventListener('submit', async (e) => {
@@ -48,6 +51,14 @@ const formEvents = (user) => {
         const modal = bootstrap.Modal.getInstance(document.querySelector('#myModal'));
         modal.hide();
       });
+    }
+    if (e.target.id.includes('delete-item-btn')) {
+      // eslint-disable-next-line no-alert
+      if (window.confirm('Want to delete?')) {
+        console.warn('CLICKED DELETE ITEM', e.target.id); const [, firebaseKey] = e.target.id.split('--'); deleteItem(firebaseKey).then(() => {
+          getOrderItems(user.uid).then(viewOrderItems);
+        });
+      }
     }
   });
 };
