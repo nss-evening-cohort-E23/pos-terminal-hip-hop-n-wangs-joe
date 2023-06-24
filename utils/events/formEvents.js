@@ -1,8 +1,9 @@
 import {
-  createOrder, getOrderItems, getOrders, updateOrder, updateItem
+  createOrder, getOrderItems, getOrders, updateItem, updateOrder, createItem
 } from '../../api/orderData';
 import { showOrders } from '../../pages/orders';
 import viewOrderItems from '../../pages/viewOrderItems';
+// import viewOrderItems from '../../pages/viewOrderItems';
 
 const formEvents = (user) => {
   document.querySelector('#form-container').addEventListener('submit', async (e) => {
@@ -54,16 +55,36 @@ const formEvents = (user) => {
     }
   });
 
-  // click event for submitting an edited item
-  document.querySelector('#main-container').addEventListener('click', (e) => {
-    if (e.target.id.includes('update-item-btn')) {
-      console.warn('clicked edit button');
+  // click even for submitting new item EC
+  document.querySelector('#main-container').addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (e.target.id.includes('submit-item')) {
+      const payload = {
+        item_name: document.querySelector('#item_name').value,
+        item_price: document.querySelector('#item_price').value,
+        orderId: 109,
+        uid: user.uid
+      };
+      console.warn('CLICKED SUBMIT ITEM', payload);
+      createItem(payload).then(({ name }) => {
+        const patchPayload = { firebaseKey: name };
+        updateItem(patchPayload).then(() => {
+          getOrderItems(user.uid).then(viewOrderItems);
+        });
+      });
+    }
+  });
+
+  // click event for submitting an edited item EC
+  document.querySelector('#main-container').addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (e.target.id.includes('update-item')) {
       const [, firebaseKey] = e.target.id.split('--');
       const payload = {
         item_name: document.querySelector('#item_name').value,
-        item_id: document.querySelector('#item_id').value,
+        // item_id: document.querySelector('#item_id').value,
         item_price: document.querySelector('#item_price').value,
-        orderId: document.querySelector('#orderId').value,
+        orderId: 109,
         firebaseKey,
         uid: user.uid,
       };

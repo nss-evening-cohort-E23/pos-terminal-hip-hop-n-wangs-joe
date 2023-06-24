@@ -4,7 +4,7 @@ const createEditItemForm = (obj = {}) => {
   // clearDom();
 
   const domString = `
-  <form id="${obj.firebaseKey ? `update-item-btn--${obj.firebaseKey}` : 'submit-item'}"
+  <form id="${obj.firebaseKey ? `update-item--${obj.firebaseKey}` : 'submit-item'}"
   class="mb-4">
     <div class="form-group">
     <label for="title">Item Name</label>
@@ -18,7 +18,7 @@ const createEditItemForm = (obj = {}) => {
       <button type="submit" class="btn btn-primary">Submit Item</button>
   </div>
   `;
-  renderToDOM('#form-container', domString);
+  renderToDOM('#main-container', domString);
 };
 
 export default createEditItemForm;

@@ -125,6 +125,20 @@ const getSingleItem = (firebaseKey) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+// create item
+const createItem = (payload) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/items.json`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload),
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(data))
+    .catch((reject));
+});
+
 export {
   getOrders,
   createOrder,
@@ -133,5 +147,6 @@ export {
   getSingleOrder,
   getOrderItems,
   updateItem,
-  getSingleItem
+  getSingleItem,
+  createItem
 };

@@ -55,12 +55,28 @@ const domEvents = (user) => {
     }
   });
 
-  // edit item form populates when you click the edit button EC
+  // edit item form populates when you click the edit button EC THIS GETS THE FORM BUT IT DOESNT HAVE PREFILLED DATA AND SUBMITTING ADDS A NEW ITEM DOES NOT UPDATE EXISTING ITEM
+  /* document.querySelector('#main-container').addEventListener('click', (e) => {
+    if (e.target.id.includes('update-item-btn')) {
+      console.warn('edit item clicked');
+      const [, firebaseKey] = e.target.id.split('--');
+      createEditItemForm({ firebaseKey });
+    }
+  }); */
+
+  // edit item form populates when you click edit tem
   document.querySelector('#main-container').addEventListener('click', (e) => {
     if (e.target.id.includes('edit-item-btn')) {
       console.warn('clicked update item button');
       const [, firebaseKey] = e.target.id.split('--');
       getSingleItem(firebaseKey).then((itemObj) => createEditItemForm(itemObj, user));
+    }
+  });
+
+  document.querySelector('#main-container').addEventListener('click', (e) => {
+    if (e.target.id.includes('add-item-btn')) {
+      console.warn('add item button clicked');
+      createEditItemForm();
     }
   });
 };
