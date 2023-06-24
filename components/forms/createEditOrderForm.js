@@ -76,7 +76,7 @@ const createEditOrderForm = (obj = {}) => {
 
     try {
       const createdOrder = await createOrder(newOrderPayload);
-      newOrderPayload.firebaseKey = createdOrder.key; // Set the firebaseKey based on the generated key
+      newOrderPayload.firebaseKey = createdOrder.firebaseKey; // Set the firebaseKey based on the generated key
       modal.hide();
     } catch (error) {
       console.error(error);
