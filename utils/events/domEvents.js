@@ -1,5 +1,5 @@
-import createEditOrderForm from '../../components/forms/createEditOrderForm';
 import viewOrderItems from '../../pages/viewOrderItems';
+import createEditOrderForm from '../../components/forms/createEditOrderForm';
 import {
   deleteOrder, getOrderItems, getOrders, getSingleOrder, getSingleItem
 } from '../../api/orderData';
@@ -20,7 +20,9 @@ const domEvents = (user) => {
       console.warn('clicked order details');
       const [, firebaseKey] = e.target.id.split('--');
       getSingleOrder(firebaseKey)
+        
         .then((order) => getOrderItems(order.orderId))
+        
         .then(viewOrderItems);
     }
   });
@@ -31,10 +33,10 @@ const domEvents = (user) => {
         console.warn('CLICKED DELETE ORDER', e.target.id);
         console.warn(e.target.id.split('--'));
         // eslint-disable-next-line camelcase
-        const [, order_name] = e.target.id.split('--');
-        deleteOrder(order_name).then(() => {
+        const [, orderId] = e.target.id.split('--');
+        deleteOrder(orderId).then(() => {
           getOrders(user.uid).then((orders) => {
-            showOrders(orders);
+            showOrders(orders, orderId);
           });
         });
       }

@@ -4,9 +4,12 @@ const viewOrderItems = (array) => {
   // clearDom();
   let totalPrice = 0;
   let domString = '';
-  array.forEach((item) => {
-    totalPrice += item.item_price;
-    domString += `
+  if (array.length === 0) {
+    domString = '<p>No items added</p>';
+  } else {
+    array.forEach((item) => {
+      totalPrice += parseFloat(item.item_price);
+      domString += `
       <div class="card" style="width: 18rem;">
          <div class="card-body">
            <h5 class="card-title">${item.item_name}</h5>
@@ -15,14 +18,19 @@ const viewOrderItems = (array) => {
             <button id="delete-item-btn--${item.firebaseKey}">Delete Item</button>
         </div>
       </div>`;
-  });
+    });
+  }
 
-  domString += `<h5 class="total-order-price">Order Total: ${totalPrice}</h5>`;
+  if (Number.isNaN(totalPrice)) {
+    totalPrice = 0;
+  }
+  domString += `<h5 class="total-order-price">Order Total: $${totalPrice.toFixed(2)}</h5>`;
 
   renderToDOM('#view', domString);
 
   const btnString = `<button class="btn btn-success btn-lg mb-4" id="add-item-btn">Add Item</button>
   <button class="btn btn-danger btn-lg mb-4" id="payment-btn">Go To Payment</button>
+
   `;
 
   renderToDOM('#order-item-btns', btnString);

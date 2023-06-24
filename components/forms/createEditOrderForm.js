@@ -1,6 +1,7 @@
 import firebase from 'firebase';
 import { createOrder } from '../../api/orderData';
 import renderToDOM from '../../utils/renderToDOM';
+import generateOrderNumber from '../../utils/idGenerator';
 
 const createEditOrderForm = (obj = {}) => {
   const domString = `
@@ -71,12 +72,12 @@ const createEditOrderForm = (obj = {}) => {
       uid: firebase.auth().currentUser.uid,
       order_status: 'Open',
       firebaseKey: obj.firebaseKey || '',
-      timestamp: new Date().toISOString(),
+      orderId: generateOrderNumber(),
     };
 
     try {
       const createdOrder = await createOrder(newOrderPayload);
-      newOrderPayload.firebaseKey = createdOrder.key; // Set the firebaseKey based on the generated key
+      newOrderPayload.firebaseKey = createdOrder.firebaseKey; // Set the firebaseKey based on the generated key
       modal.hide();
     } catch (error) {
       console.error(error);
