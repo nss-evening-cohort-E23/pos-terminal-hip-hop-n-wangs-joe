@@ -19,7 +19,9 @@ const domEvents = (user) => {
     if (e.target.id.includes('details-order-btn')) {
       console.warn('clicked order details');
       const [, firebaseKey] = e.target.id.split('--');
-      getSingleOrder(firebaseKey).then((order) => getOrderItems(order.orderId)).then(viewOrderItems);
+      getSingleOrder(firebaseKey)
+        .then((order) => getOrderItems(order.orderId))
+        .then(viewOrderItems);
     }
   });
 
