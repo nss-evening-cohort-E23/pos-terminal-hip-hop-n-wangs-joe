@@ -20,9 +20,7 @@ const domEvents = (user) => {
       console.warn('clicked order details');
       const [, firebaseKey] = e.target.id.split('--');
       getSingleOrder(firebaseKey)
-        
         .then((order) => getOrderItems(order.orderId))
-        
         .then(viewOrderItems);
     }
   });
